@@ -1,0 +1,15 @@
+import { AiOutlineClose } from "react-icons/ai";
+<AiOutlineClose />
+
+
+import { AiOutlineHeart } from "react-icons/ai";
+<AiOutlineHeart />
+
+import { CiStar } from "react-icons/ci";
+<CiStar />
+
+import { LuEyeOff } from "react-icons/lu";
+<LuEyeOff />
+
+import { FiBookOpen } from "react-icons/fi";
+<FiBookOpen />
