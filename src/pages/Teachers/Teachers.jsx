@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { getTeachers } from "../../services/firebase";
+import { fetchTeachers } from "../../services/teachersService";
 
 export default function Teachers() {
   const [teachers, setTeachers] = useState([]);
 
+  //   useEffect(() => {
+  //     getTeachers().then(setTeachers);
+  //   }, []);
   useEffect(() => {
-    getTeachers().then(setTeachers);
+    const load = async () => {
+      const data = await fetchTeachers();
+      setTeachers(data);
+    };
+    load();
   }, []);
 
   return (
@@ -23,8 +30,9 @@ export default function Teachers() {
       <Outlet />
       {teachers.map((teacher) => (
         <div key={teacher.id}>
-          {teacher.name}
-          {teacher.surname}
+          <h3>{teacher.name}</h3>
+          <h3>{teacher.surname}</h3>
+          <p>Languages: {teacher.languages.join(", ")}</p>
         </div>
       ))}
     </>
