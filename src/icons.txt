@@ -13,3 +13,6 @@ import { LuEyeOff } from "react-icons/lu";
 
 import { FiBookOpen } from "react-icons/fi";
 <FiBookOpen />
+
+import { FiLogIn } from "react-icons/fi";
+<FiLogIn />

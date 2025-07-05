@@ -12,9 +12,11 @@ header {
 
 header nav {
     display: flex;
+    width: 661px;
+    justify-content: space-between;
 }
 
-.headerNavItem {
+.headerNavItems {
     display: flex;
     gap: 28px;
 }
@@ -24,7 +26,13 @@ header nav {
     font-size: 16px;
 }
 
-.headerItem {
+.headerItems {
     display: flex;
 
+}
+
+.headerIcon {
+    margin-right: "8px";
+    size: 20px;
+    color: #f4c550;
 }
