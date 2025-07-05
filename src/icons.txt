@@ -16,3 +16,6 @@ import { FiBookOpen } from "react-icons/fi";
 
 import { FiLogIn } from "react-icons/fi";
 <FiLogIn />
+
+import { LuLogOut } from "react-icons/lu";
+<LuLogOut />

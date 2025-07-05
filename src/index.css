@@ -72,6 +72,9 @@ body {
   line-height: 1.5;
   max-width: 1440px;
   padding: 20px 64px 32px 64px;
+   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ul {
@@ -111,3 +114,4 @@ img {
 button {
   cursor: pointer;
 }
+
