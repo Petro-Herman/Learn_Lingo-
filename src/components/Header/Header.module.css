@@ -1,0 +1,72 @@
+header {
+  display: flex;
+  padding-left: 64px;
+  padding-right: 64px;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #121417;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+header nav {
+  display: flex;
+  width: 661px;
+  justify-content: space-between;
+}
+
+.headerNavItems {
+  display: flex;
+  gap: 28px;
+}
+
+.headerNav {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #121417;
+}
+
+.headerItems {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.headerIcon {
+  margin-right: 8px;
+  font-size: 20px;
+  color: #f4c550;
+}
+
+.headerBtnLog {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #121417;
+  border: none;
+  background-color: transparent;
+}
+
+.headerBtnReg {
+  border-radius: 12px;
+  padding: 14px 39px;
+  width: 166px;
+  height: 48px;
+  background: #121417;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
+  border: none;
+}
