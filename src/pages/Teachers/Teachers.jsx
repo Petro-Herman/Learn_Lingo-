@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchTeachers } from "../../services/teachersService";
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
 import css from "./Teachers.module.css";
+import HeaderHome from "../../components/Header/Header";
 
 export default function Teachers() {
   const [teachers, setTeachers] = useState([]);
@@ -19,9 +20,11 @@ export default function Teachers() {
   }, []);
 
   return (
-    <div className={css.teachersPage}>
-      <h1>Teachers</h1>
-      {/* <ul>
+    <>
+      <HeaderHome />
+      <div className={css.teachersPage}>
+        <h1>Teachers</h1>
+        {/* <ul>
         <li>
           <Link to="teach1">Teach1</Link>
         </li>
@@ -29,10 +32,11 @@ export default function Teachers() {
           <Link to="teach2">Teach2</Link>
         </li>
       </ul> */}
-      {/* <Outlet /> */}
-      {teachers.map((teacher) => (
-        <TeacherCard key={teacher.id} teacher={teacher} />
-      ))}
-    </div>
+        {/* <Outlet /> */}
+        {teachers.map((teacher) => (
+          <TeacherCard key={teacher.id} teacher={teacher} />
+        ))}
+      </div>
+    </>
   );
 }
