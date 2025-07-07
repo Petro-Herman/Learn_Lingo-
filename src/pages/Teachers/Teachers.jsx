@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+// import { Link, Outlet } from "react-router-dom";
 import { fetchTeachers } from "../../services/teachersService";
+import TeacherCard from "../../components/TeacherCard/TeacherCard";
+import css from "./Teachers.module.css";
 
 export default function Teachers() {
   const [teachers, setTeachers] = useState([]);
@@ -17,24 +19,20 @@ export default function Teachers() {
   }, []);
 
   return (
-    <>
+    <div className={css.teachersPage}>
       <h1>Teachers</h1>
-      <ul>
+      {/* <ul>
         <li>
           <Link to="teach1">Teach1</Link>
         </li>
         <li>
           <Link to="teach2">Teach2</Link>
         </li>
-      </ul>
-      <Outlet />
+      </ul> */}
+      {/* <Outlet /> */}
       {teachers.map((teacher) => (
-        <div key={teacher.id}>
-          <h3>{teacher.name}</h3>
-          <h3>{teacher.surname}</h3>
-          <p>Languages: {teacher.languages.join(", ")}</p>
-        </div>
+        <TeacherCard key={teacher.id} teacher={teacher} />
       ))}
-    </>
+    </div>
   );
 }

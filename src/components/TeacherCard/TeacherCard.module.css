@@ -1,0 +1,91 @@
+.card {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.content {
+  flex: 1;
+}
+
+.label {
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 4px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.name {
+  margin: 4px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.speaks {
+  font-size: 14px;
+  color: #333;
+}
+
+.lang {
+  margin-right: 6px;
+  text-decoration: underline;
+  color: #1c1c1c;
+}
+
+.price {
+  color: green;
+  font-weight: 600;
+}
+
+.favorite {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.readMore {
+  margin: 12px 0;
+  padding: 6px 12px;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #1c1c1c;
+}
+
+.levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.level {
+  padding: 4px 10px;
+  background-color: #eee;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.highlight {
+  background-color: #f4c550;
+  color: #000;
+  font-weight: 600;
+}
