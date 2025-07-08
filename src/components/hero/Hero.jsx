@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import css from "./Hero.module.css";
 
 export default function Hero() {
+const navigate = useNavigate();
+
   return (
     <div className={css.hero}>
       <div className={css.heroWrap}>
@@ -12,7 +15,7 @@ export default function Hero() {
           Elevate your language proficiency to new heights by connecting with
           highly qualified and experienced tutors.
         </p>
-        <button className={css.heroBtn}>Get started</button>
+        <button type="button" className={css.heroBtn} onClick={() => navigate("/teachers")}>Get started</button>
       </div>
       <div className={css.heroImg}>
         <img src="img/hero_img.jpg" alt="girl with macbook" />
