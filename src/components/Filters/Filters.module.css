@@ -1,0 +1,43 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* .filters select,
+.filters input {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+} */
+
+.filtersSelect {
+border-radius: 14px;
+padding: 14px 18px;
+width: 124px;
+height: 48px;
+background-color: #fff;
+border: none;
+}
+
+.filtersSelect option {
+font-weight: 500;
+font-size: 18px;
+line-height: 1.11;
+color: #121417;
+}
+
+.selectWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.selectWrap label {
+    font-weight: 500;
+    font-size: 14px;    
+    line-height: 1.28;
+    color: #8a8a89;
+}
