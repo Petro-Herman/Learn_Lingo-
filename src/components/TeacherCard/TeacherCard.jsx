@@ -2,6 +2,7 @@ import { FaStar  } from "react-icons/fa";
 import css from "./TeacherCard.module.css";
 import { FiBookOpen } from "react-icons/fi";
 import { AiOutlineHeart } from "react-icons/ai";
+import { useState } from "react";
 
 export default function TeacherCard({ teacher }) {
   const {
@@ -11,11 +12,21 @@ export default function TeacherCard({ teacher }) {
     languages,
     levels,
     rating,
+    reviews = [],
     lessons_done,
     price_per_hour,
     lesson_info,
     conditions,
+    experience,
   } = teacher;
+
+
+  const [isExpanded, setIsExbanded] = useState(false);
+
+  const toggleCard = () => {
+    setIsExbanded((prev) => !prev);
+  };
+    
 
   return (
     <li className={css.card}>
@@ -45,10 +56,14 @@ export default function TeacherCard({ teacher }) {
             <span>
               <p className={css.itemText}>Price/1 hour: <span className={css.price}>${price_per_hour}</span></p>
             </span>
-            <AiOutlineHeart className={css.heart} />
+              <button className={css.heartBtn }><AiOutlineHeart className={css.heart} /></button>
           </div>
         </div>
-          <p className={css.speaks}>
+          
+        </div>
+        <ul className={css.cardList}>
+          <li>
+            <p className={css.label}>
             Speaks: {""}
             {languages.map((lang, i) => (
               <span key={i} className={css.lang}>
@@ -56,17 +71,51 @@ export default function TeacherCard({ teacher }) {
                 {i < languages.length - 1 && ","}&nbsp;
               </span>
             ))}
-          </p>
-        </div>
+            </p>
+          </li>
+          <li>
+            <p className={css.cardText}>
+          <span className={css.label}>Lesson Info:</span> {lesson_info}
+            </p>
+          </li>
+          <li>
+            <p className={css.cardText}>
+          <span className={css.label}>Conditions</span> {conditions.join("")}
+            </p>
+          </li>
+        </ul>
 
-        <p>
-          <strong>Lesson Info:</strong> {lesson_info}
-        </p>
-        <p>
-          <strong>Conditions</strong> {conditions.join("")}
-        </p>
+        <button className={css.readMore} onClick={toggleCard}>
+          {isExpanded ? "Hide" : "Read More"}
+        </button>
 
-        <button className={css.readMore}>Read More</button>
+        {isExpanded && (
+          <>
+            <ul className={css.cardListHide}>
+            {/* <li>
+              <p>Lesson info: {lesson_info}</p>
+            </li>
+            <li>
+              <p>Conditions: {conditions.join(" ")}</p>
+            </li> */}
+            <li>
+              <p> {experience}</p>
+            </li>
+          </ul>
+            {/* <h3>Student Reviews:</h3> */}
+            {reviews && reviews.length > 0 && (
+              <ul className={css.review}>
+              {reviews.map((review, i) => (
+              <li key={i}>
+                <p className={css.reviewerName}>{review.reviewer_name}</p>
+                  <p><FaStar className={css.iconStar} /> {review.reviewer_rating}</p>
+                  <p className={css.reviewComment}>{review.comment}</p>
+              </li>
+              ))}
+            </ul>
+            )}
+          </>
+        )}
 
         <ul className={css.levels}>
           {levels.map((level, i) => (
@@ -77,7 +126,10 @@ export default function TeacherCard({ teacher }) {
               #{level}
             </li>
           ))}
-          </ul>
+        </ul>
+        {isExpanded && (
+          <button className={css.teacherMoreBtn}>Book trial lesson</button>
+        )}
         </div>
       {/* </div> */}
     </li>

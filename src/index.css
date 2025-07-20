@@ -70,11 +70,12 @@ button:focus-visible {
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
-  max-width: 1440px;
+  /* max-width: 1440px;
   padding: 20px 64px 32px 64px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto; */
 }
 
 ul {
@@ -113,5 +114,6 @@ img {
 
 button {
   cursor: pointer;
+  border: none;
 }
 

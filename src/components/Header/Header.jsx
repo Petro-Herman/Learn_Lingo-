@@ -2,9 +2,29 @@ import { Link, NavLink } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
 // import {flag} from "../../img/ukraine.png"
 import css from "./Header.module.css";
+import { use, useState } from "react";
+// import AuthForm from "../AuthForm/AuthForm";
 // import Layout from "../../layout/Layout";
+import LoginModal from "../AuthForm/auth/LoginModal";
+import RegisterModal from "../AuthForm/auth/RegisterModal";
 
-export default function HeaderHome() {
+
+export default function HeaderHome({user}) {
+  // const [showModal, setShowModal] = useState(false);
+  // const [authType, setAuthType] = useState("login");
+  const [isLoginOpen, setLoginOpen] = useState(false);
+  const [isRegisterOpen, setRegisterOpen] = useState(false);
+
+  const handleLogin = (email, password) => {
+    console.log("Login", email, password);
+    setLoginOpen(false);
+  };
+
+  const handleRegister = (email, password, name) => {
+    console.log("Register", email, password, name);
+    setRegisterOpen(false);
+  }
+
   return (
     <header>
       <nav>
@@ -33,18 +53,24 @@ export default function HeaderHome() {
       </nav>
       <ul className={css.headerItems}>
         <li>
-          <button className={css.headerBtnLog}>
+          <button className={css.headerBtnLog} onClick={() => setLoginOpen(true)}>
             <FiLogIn
               className={css.headerIcon}
-              style={{ marginRight: "8px" }}
+              // style={{ marginRight: "8px" }}
             />
             Log in
           </button>
         </li>
         <li>
-          <button className={css.headerBtnReg}>Registration</button>
+          <button className={css.headerBtnReg} onClick={() => setRegisterOpen(true)}>
+            Registration</button>
         </li>
       </ul>
+      {isLoginOpen && <LoginModal onClose={() => setLoginOpen(false)} onLogin={handleLogin} />}
+      {/* <LoginModal onLogin={handleLogin} /> */}
+      {isRegisterOpen && <RegisterModal onClose={() => setRegisterOpen(false)} onRegister={handleRegister} />}
+      {/* <RegisterModal onRegister={handleRegister}/> */}
+      {/* {showModal && <AuthForm type={authType} onClose={() => setShowModal(false)}/>} */}
     </header>
   );
 }

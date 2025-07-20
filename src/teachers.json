@@ -16,12 +16,12 @@
       "reviews": [
         {
           "reviewer_name": "Alice",
-          "reviewer_rating": 5,
+          "reviewer_rating": 5.0,
           "comment": "John is an excellent teacher! I highly recommend him."
         },
         {
           "reviewer_name": "Bob",
-          "reviewer_rating": 4,
+          "reviewer_rating": 4.0,
           "comment": "John is very knowledgeable and patient. I enjoyed his classes."
         }
       ],
@@ -49,7 +49,7 @@
       "reviews": [
         {
           "reviewer_name": "Eve",
-          "reviewer_rating": 5,
+          "reviewer_rating": 5.0,
           "comment": "Jane is an amazing teacher! She is patient and supportive."
         },
         {

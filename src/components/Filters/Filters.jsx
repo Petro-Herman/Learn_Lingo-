@@ -12,7 +12,7 @@ export default function Filters({
     <div className={css.filters}>
         <div className={css.selectWrap}>
           <label htmlFor="Language">Languages</label>
-      <select className={css.filtersSelect}
+      <select style={{width: 221}} className={css.filtersSelect}
       id="Language"
         value={selectedLanguage}
         onChange={(e) => setSelectedLanguage(e.target.value)}
@@ -28,7 +28,7 @@ export default function Filters({
 
       <div className={css.selectWrap}>
         <label htmlFor="level">Level of knowledge</label>
-      <select className={css.filtersSelect}
+      <select style={{width: 198}} className={css.filtersSelect}
       id="level"
         value={selectedLevel}
         onChange={(e) => setSelectedLevel(e.target.value)}
@@ -44,7 +44,7 @@ export default function Filters({
 
       <div className={css.selectWrap}>
         <label htmlFor="price">Price</label>
-              <select className={css.filtersSelect} id="price" value={price} onChange={(e) => setPrice(e.target.value)}>
+              <select style={{width: 124}} className={css.filtersSelect} id="price" value={price} onChange={(e) => setPrice(e.target.value)}>
                 <option value="30">30</option>
             <option value="10">10</option>
             <option value="20">20</option>

@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
+import HeaderHome from "../components/Header/Header";
 
-export default function Layout() {
+export default function Layout(user) {
   return (
     <>
       {/* <nav>
@@ -8,6 +9,7 @@ export default function Layout() {
         <NavLink to="/teachers">Teachers</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
       </nav> */}
+      {/* <HeaderHome user={user}/> */}
       <Outlet />
     </>
   );
