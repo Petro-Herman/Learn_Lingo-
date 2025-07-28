@@ -1,11 +1,14 @@
 import { FaStar  } from "react-icons/fa";
 import css from "./TeacherCard.module.css";
 import { FiBookOpen } from "react-icons/fi";
-import { AiOutlineHeart } from "react-icons/ai";
-import { useState } from "react";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
+import { getFavorites, addFavorite, removeFavorite, isFavorite } from "../../utils/favorites";
 
 export default function TeacherCard({ teacher }) {
   const {
+    id,
     name,
     surname,
     avatar_url,
@@ -19,6 +22,36 @@ export default function TeacherCard({ teacher }) {
     conditions,
     experience,
   } = teacher;
+
+  const { isLoggedIn } = useAuth();
+
+  const [favorite, setFavorite] = useState(isFavorite(id));
+
+  useEffect(() => {
+  if (isLoggedIn) {
+    setFavorite(isFavorite(id));
+  }
+}, [isLoggedIn, id]);
+
+  
+  const handleFavoriteClick = () => {
+  if (!isLoggedIn) {
+    return alert("Please log in to add to favorites.");
+    }
+    
+     console.log("User:", JSON.parse(localStorage.getItem("user")));
+  console.log("Before:", getFavorites());
+
+  if (favorite) {
+    removeFavorite(id);
+  } else {
+    addFavorite(id);
+  }
+
+  setFavorite(!favorite);
+  window.dispatchEvent(new Event("favorites-updated"));
+};
+
 
 
   const [isExpanded, setIsExbanded] = useState(false);
@@ -56,7 +89,17 @@ export default function TeacherCard({ teacher }) {
             <span>
               <p className={css.itemText}>Price/1 hour: <span className={css.price}>${price_per_hour}</span></p>
             </span>
-              <button className={css.heartBtn }><AiOutlineHeart className={css.heart} /></button>
+              <button className={css.heartBtn} onClick={handleFavoriteClick}>
+                {favorite ? (
+                  <AiFillHeart className={css.heartActive} />
+                ) : (
+                  <AiOutlineHeart className={css.heart} />
+                )}
+              </button>
+              <button onClick={() => console.log("Simple button clicked")}>
+  Test button
+</button>
+
           </div>
         </div>
           
@@ -92,17 +135,10 @@ export default function TeacherCard({ teacher }) {
         {isExpanded && (
           <>
             <ul className={css.cardListHide}>
-            {/* <li>
-              <p>Lesson info: {lesson_info}</p>
-            </li>
-            <li>
-              <p>Conditions: {conditions.join(" ")}</p>
-            </li> */}
             <li>
               <p> {experience}</p>
             </li>
           </ul>
-            {/* <h3>Student Reviews:</h3> */}
             {reviews && reviews.length > 0 && (
               <ul className={css.review}>
               {reviews.map((review, i) => (
@@ -131,7 +167,6 @@ export default function TeacherCard({ teacher }) {
           <button className={css.teacherMoreBtn}>Book trial lesson</button>
         )}
         </div>
-      {/* </div> */}
     </li>
   );
 }

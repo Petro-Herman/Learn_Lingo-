@@ -1,7 +1,6 @@
 .hero {
   display: flex;
   gap: 24px;
-  /* margin-top: 20px; */
   margin-bottom: 24px;
 }
 
@@ -58,7 +57,6 @@
 .heroImg {
   width: 568px;
   height: 530px;
-  /* flex: 1; */
   border-radius: 30px;
   background-color: #fbe9ba;
 }

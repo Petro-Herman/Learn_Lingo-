@@ -51,7 +51,6 @@ export default function Teachers() {
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + 4);
   };
-// className={css.container}
   return (
     <div>
       <HeaderHome />

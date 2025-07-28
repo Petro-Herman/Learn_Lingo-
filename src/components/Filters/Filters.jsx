@@ -17,7 +17,6 @@ export default function Filters({
         value={selectedLanguage}
         onChange={(e) => setSelectedLanguage(e.target.value)}
       >
-        {/* <option value="">All Languages</option> */}
         <option value="French">French</option>
         <option value="English">English</option>
         <option value="Spanish">Ukrainian</option>

@@ -14,8 +14,6 @@
 .aboutItem {
   display: flex;
   gap: 16px;
-  
-  /* width: calc((100% - 300px) / 4);   ??? */
 }
 
 .aboutItemTitle {
@@ -28,7 +26,6 @@
 }
 
 .aboutItemText {
-  
   font-weight: 400;
   font-size: 14px;
   line-height: 1.28;
